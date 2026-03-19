@@ -321,12 +321,12 @@ contract ETHRegistrarController is
                     msg.sender,
                     msg.sender,
                     registration.resolver,
-                    string.concat(registration.label, ".eth")
+                    string.concat(registration.label, ".etn")
                 );
             if (registration.reverseRecord & REVERSE_RECORD_DEFAULT_BIT != 0)
                 defaultReverseRegistrar.setNameForAddr(
                     msg.sender,
-                    string.concat(registration.label, ".eth")
+                    string.concat(registration.label, ".etn")
                 );
         }
 
