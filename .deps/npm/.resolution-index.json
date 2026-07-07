@@ -9,5 +9,13 @@
         "file": "nvmrc.sol"
       }
     }
+  },
+  ".nvmrc.sol": {
+    "__sources__": {
+      ".nvmrc.sol": {
+        "content": "v24.6.0",
+        "file": ".nvmrc.sol"
+      }
+    }
   }
 }
