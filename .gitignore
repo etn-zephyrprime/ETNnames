@@ -1,14 +1,12 @@
-# Compiled artifacts / build output
-artifacts/
-cache/
-
-# Dependencies
-node_modules/
-
-# Environment files
+node_modules
+artifacts
+cache
+gasreport-*
+generated
 .env
-.env.org
-
-# Editor/OS cruft
-.vscode/
-.DS_Store
+*.DS_Store
+build
+forge-cache
+out
+deployments/**/.pendingSafeTransactions
+deployments/localhost
