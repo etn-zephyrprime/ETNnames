@@ -33,8 +33,9 @@ contract ETHRegistrarController is
     uint256 public constant MIN_REGISTRATION_DURATION = 28 days;
 
     // @notice The node (i.e. namehash) for the eth TLD.
-    bytes32 private constant ETH_NODE =
-        0x93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae;
+    bytes32 private constant ETN_NODE =
+        0x69a3977d40595dbc343e3fa6ddbd26dbe31cc237836622384941b3c5148974cd;
+    // keccak256(abi.encodePacked(bytes32(0), keccak256("etn")))
 
     /// @notice The maximum expiry time for a registration.
     uint64 private constant MAX_EXPIRY = type(uint64).max;
@@ -321,12 +322,12 @@ contract ETHRegistrarController is
                     msg.sender,
                     msg.sender,
                     registration.resolver,
-                    string.concat(registration.label, ".eth")
+                    string.concat(registration.label, ".etn")
                 );
             if (registration.reverseRecord & REVERSE_RECORD_DEFAULT_BIT != 0)
                 defaultReverseRegistrar.setNameForAddr(
                     msg.sender,
-                    string.concat(registration.label, ".eth")
+                    string.concat(registration.label, ".etn")
                 );
         }
 
