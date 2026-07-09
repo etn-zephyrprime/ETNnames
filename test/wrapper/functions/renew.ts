@@ -19,7 +19,7 @@ export const renewTests = (
 ) => {
   describe('renew', () => {
     const label = 'register'
-    const name = `${label}.etn`
+    const name = `${label}.eth`
 
     async function fixture() {
       const initial = await loadNameWrapperFixture()

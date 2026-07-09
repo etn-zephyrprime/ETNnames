@@ -25,7 +25,7 @@ export const setSubnodeRecordTests = (
   describe('setSubnodeRecord()', () => {
     const label = 'subdomain2'
     const sublabel = 'sub'
-    const name = `${label}.etn`
+    const name = `${label}.eth`
     const subname = `${sublabel}.${name}`
 
     async function fixture() {

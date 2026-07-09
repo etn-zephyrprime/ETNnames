@@ -20,7 +20,7 @@ export const setRecordTests = (
 ) => {
   describe('setRecord', () => {
     const label = 'setrecord'
-    const name = `${label}.etn`
+    const name = `${label}.eth`
 
     async function fixture() {
       const initial = await loadNameWrapperFixture()

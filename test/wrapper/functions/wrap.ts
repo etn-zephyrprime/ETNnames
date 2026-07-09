@@ -98,7 +98,7 @@ export const wrapTests = (
         })
     })
 
-    it.skip('Cannot wrap a name if the owner has not authorised the wrapper with the ENS registry (skipped: toBeRevertedWithoutReason matcher bug)', async () => {
+    it('Cannot wrap a name if the owner has not authorised the wrapper with the ENS registry', async () => {
       const { nameWrapper, accounts } = await loadFixture()
 
       await expect(
@@ -216,7 +216,7 @@ export const wrapTests = (
 
       await expect(
         nameWrapper.write.wrap([
-          dnsEncodeName(`${label}.etn`),
+          dnsEncodeName(`${label}.eth`),
           accounts[1].address,
           zeroAddress,
         ]),
@@ -312,7 +312,7 @@ export const wrapTests = (
       ).toBeRevertedWithString('namehash: Junk at end of name')
     })
 
-    it.skip('Does not allow wrapping a name you do not own (skipped: unresolved, pre-existing issue)', async () => {
+    it('Does not allow wrapping a name you do not own', async () => {
       const { nameWrapper, accounts, actions } = await loadFixture()
 
       const label = 'xyz'
@@ -346,7 +346,7 @@ export const wrapTests = (
         await loadFixture()
 
       const label = 'test'
-      const name = `${label}.etn`
+      const name = `${label}.eth`
       const subLabel = 'sub'
       const subname = `${subLabel}.${name}`
 
