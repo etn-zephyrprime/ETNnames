@@ -11,3 +11,4 @@ out
 deployments/**/.pendingSafeTransactions
 deployments/localhostpackage-lock.json
 remix.config.json
+.deps/
