@@ -251,16 +251,16 @@ describe('OffchainDNSResolver', () => {
     } = await loadFixture()
 
     // Configure dnsresolver.eth to resolve to the ownedResolver so we can use it in the test
-    await root.write.setSubnodeOwner([labelhash('etn'), accounts[0].address])
+    await root.write.setSubnodeOwner([labelhash('eth'), accounts[0].address])
     await ensRegistry.write.setSubnodeRecord([
-      namehash('etn'),
+      namehash('eth'),
       labelhash('dnsresolver'),
       accounts[0].address,
       ownedResolver.address,
       0n,
     ])
     await ownedResolver.write.setAddr([
-      namehash('dnsresolver.etn'),
+      namehash('dnsresolver.eth'),
       ownedResolver.address,
     ])
 
@@ -278,7 +278,7 @@ describe('OffchainDNSResolver', () => {
     await expect(
       doDnsResolveCallback({
         name,
-        texts: [`ENS1 dnsresolver.etn`],
+        texts: [`ENS1 dnsresolver.eth`],
         calldata,
       }),
     ).resolves.toEqual(

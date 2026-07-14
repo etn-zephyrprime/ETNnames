@@ -90,7 +90,7 @@ describe('NameCoder', () => {
 
     it('name.length is <root>', async () => {
       const F = await loadFixture()
-      const dns = dnsEncodeName('etn')
+      const dns = dnsEncodeName('eth')
       const offset = BigInt(size(dns))
       const prev = offset - 1n
       await expect(
@@ -316,57 +316,57 @@ describe('NameCoder', () => {
     it('min label', async () => {
       const F = await loadFixture()
       await expect(
-        F.read.addLabel([dnsEncodeName('etn'), MIN_LABEL]),
-      ).resolves.toStrictEqual(dnsEncodeName(`${MIN_LABEL}.etn`))
+        F.read.addLabel([dnsEncodeName('eth'), MIN_LABEL]),
+      ).resolves.toStrictEqual(dnsEncodeName(`${MIN_LABEL}.eth`))
     })
 
     it('max label', async () => {
       const F = await loadFixture()
       await expect(
-        F.read.addLabel([dnsEncodeName('etn'), MAX_LABEL]),
-      ).resolves.toStrictEqual(dnsEncodeName(`${MAX_LABEL}.etn`))
+        F.read.addLabel([dnsEncodeName('eth'), MAX_LABEL]),
+      ).resolves.toStrictEqual(dnsEncodeName(`${MAX_LABEL}.eth`))
     })
 
     it('empty label reverts', async () => {
       const F = await loadFixture()
       await expect(
-        F.read.addLabel([dnsEncodeName('etn'), '']),
+        F.read.addLabel([dnsEncodeName('eth'), '']),
       ).toBeRevertedWithCustomError('LabelIsEmpty')
     })
 
     it('long label reverts', async () => {
       const F = await loadFixture()
-      await expect(F.read.addLabel([dnsEncodeName('etn'), LONG_LABEL]))
+      await expect(F.read.addLabel([dnsEncodeName('eth'), LONG_LABEL]))
         .toBeRevertedWithCustomError('LabelIsTooLong')
         .withArgs([LONG_LABEL])
     })
   })
 
-  describe('etnName()', () => {
+  describe('ethName()', () => {
     it('min label', async () => {
       const F = await loadFixture()
-      await expect(F.read.etnName([MIN_LABEL])).resolves.toStrictEqual(
-        dnsEncodeName(`${MIN_LABEL}.etn`),
+      await expect(F.read.ethName([MIN_LABEL])).resolves.toStrictEqual(
+        dnsEncodeName(`${MIN_LABEL}.eth`),
       )
     })
 
     it('max label', async () => {
       const F = await loadFixture()
-      await expect(F.read.etnName([MAX_LABEL])).resolves.toStrictEqual(
-        dnsEncodeName(`${MAX_LABEL}.etn`),
+      await expect(F.read.ethName([MAX_LABEL])).resolves.toStrictEqual(
+        dnsEncodeName(`${MAX_LABEL}.eth`),
       )
     })
 
     it('empty label reverts', async () => {
       const F = await loadFixture()
-      await expect(F.read.etnName([''])).toBeRevertedWithCustomError(
+      await expect(F.read.ethName([''])).toBeRevertedWithCustomError(
         'LabelIsEmpty',
       )
     })
 
     it('long label reverts', async () => {
       const F = await loadFixture()
-      await expect(F.read.etnName([LONG_LABEL]))
+      await expect(F.read.ethName([LONG_LABEL]))
         .toBeRevertedWithCustomError('LabelIsTooLong')
         .withArgs([LONG_LABEL])
     })

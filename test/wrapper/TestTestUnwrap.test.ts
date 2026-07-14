@@ -50,7 +50,7 @@ async function fixture() {
 
   await ensRegistry.write.setSubnodeOwner([
     zeroHash,
-    labelhash('etn'),
+    labelhash('eth'),
     baseRegistrar.address,
   ])
 
@@ -71,10 +71,10 @@ const loadFixture = async () => connection.networkHelpers.loadFixture(fixture)
 describe('TestUnwrap', () => {
   describe('wrapFromUpgrade()', () => {
     describe('.eth', () => {
-      const encodedName = dnsEncodeName('wrapped.etn')
+      const encodedName = dnsEncodeName('wrapped.eth')
       const label = 'wrapped'
       const labelHash = labelhash(label)
-      const nameHash = namehash('wrapped.etn')
+      const nameHash = namehash('wrapped.eth')
 
       async function fixtureWithTestEthRegistered() {
         const initial = await loadFixture()
@@ -164,9 +164,9 @@ describe('TestUnwrap', () => {
     describe('other', () => {
       const label = 'to-upgrade'
       const parentLabel = 'wrapped2'
-      const name = `${label}.${parentLabel}.etn`
+      const name = `${label}.${parentLabel}.eth`
       const parentLabelHash = labelhash(parentLabel)
-      const parentHash = namehash(`${parentLabel}.etn`)
+      const parentHash = namehash(`${parentLabel}.eth`)
       const nameHash = namehash(name)
       const encodedName = dnsEncodeName(name)
 

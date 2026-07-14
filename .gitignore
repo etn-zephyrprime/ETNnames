@@ -13,3 +13,4 @@ deployments/localhost
 .deps/
 package-lock.json
 remix.config.json
+.deps/

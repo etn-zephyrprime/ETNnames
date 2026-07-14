@@ -8,7 +8,7 @@ export async function deployNameWrapperFixture(connection: NetworkConnection) {
   const ensRegistry = await connection.viem.deployContract('ENSRegistry', [])
   const baseRegistrar = await connection.viem.deployContract(
     'BaseRegistrarImplementation',
-    [ensRegistry.address, namehash('etn')],
+    [ensRegistry.address, namehash('eth')],
   )
 
   await baseRegistrar.write.addController([accounts[0].address])
@@ -54,10 +54,10 @@ export async function deployNameWrapperFixture(connection: NetworkConnection) {
     [ensRegistry.address, baseRegistrar.address],
   )
 
-  // setup .etn
+  // setup .eth
   await ensRegistry.write.setSubnodeOwner([
     zeroHash,
-    labelhash('etn'),
+    labelhash('eth'),
     baseRegistrar.address,
   ])
 
